@@ -1,1 +1,76 @@
-<p>people-table works!</p>
+<h2>Employee Directory</h2>
+
+<div class="filter-container">
+  <h3>Filters</h3>
+  <div class="filter-inputs">
+    <div class="filter-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Filter by name">
+    </div>
+    <div class="filter-group">
+      <label for="role">Role</label>
+      <input type="text" id="role" placeholder="Filter by role">
+    </div>
+    <div class="filter-group">
+      <label for="client">Client</label>
+      <input type="text" id="client" placeholder="Filter by client">
+    </div>
+    <div class="filter-group">
+      <label for="project">Project</label>
+      <input type="text" id="project" placeholder="Filter by project">
+    </div>
+    <div class="filter-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" placeholder="Filter by email">
+    </div>
+    <div class="filter-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" placeholder="Filter by phone">
+    </div>
+  </div>
+  <button class="apply-filters">Apply Filters</button>
+</div>
+
+<div class="border">
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Client</th>
+        <th>Project</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example rows, would be populated from a data source in real implementation -->
+      <tr>
+        <td>John Doe</td>
+        <td>Developer</td>
+        <td>Acme Inc</td>
+        <td>Web Portal</td>
+        <td>johnexample.com</td>
+        <td>(555) 123-4567</td>
+        <td>
+          <button class="action-btn edit">Edit</button>
+          <button class="action-btn delete">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>Designer</td>
+        <td>Beta Corp</td>
+        <td>Mobile App</td>
+        <td>janeexample.com</td>
+        <td>(555) 987-6543</td>
+        <td>
+          <button class="action-btn edit">Edit</button>
+          <button class="action-btn delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
