@@ -10,6 +10,8 @@ import { SamplekpiComponent } from './components/samplekpi/samplekpi.component';
 import { CommunicationTableComponent } from './components/communication-table/communication-table.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { PreferencesComponent } from './components/preferences/preferences.component';
+import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { PreferencesComponent } from './components/preferences/preferences.compo
     SamplekpiComponent,
     CommunicationTableComponent,
     ClientsComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    SiteLayoutComponent
   ],
   imports: [
     BrowserModule,
