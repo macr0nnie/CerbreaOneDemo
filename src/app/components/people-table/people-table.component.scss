@@ -1,0 +1,119 @@
+.border{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+    overflow-x: auto; // Add horizontal scroll for mobile responsiveness
+}
+
+.filter-container{
+    background: rgb(196, 210, 218);
+    border-color: white;
+    width: 100%;
+    height: auto; // Changed from fixed height
+    border-radius: 4px;
+    color: rgb(210, 102, 2);
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+}
+
+.filter-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 200px;
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+}
+
+.apply-filters {
+    background-color: #4a6da7;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #345286;
+    }
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+    }
+
+    th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+}
+
+.action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+
+    &.edit {
+        background-color: #4a90e2;
+        color: white;
+
+        &:hover {
+            background-color: #3a80d2;
+        }
+    }
+
+    &.delete {
+        background-color: #e25c5c;
+        color: white;
+
+        &:hover {
+            background-color: #d24c4c;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-group {
+        flex: 1 1 100%;
+    }
+}
