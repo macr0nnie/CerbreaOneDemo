@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ import { CommunicationTableComponent } from './components/communication-table/co
 import { ClientsComponent } from './components/clients/clients.component';
 import { PreferencesComponent } from './components/preferences/preferences.component';
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
-
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { CustomTableComponent } from './common/custom-table/custom-table.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,15 @@ import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component
     CommunicationTableComponent,
     ClientsComponent,
     PreferencesComponent,
-    SiteLayoutComponent
+    SiteLayoutComponent,
+    EmployeeDetailsComponent,
+    CustomTableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule  // Add ReactiveFormsModule to the imports array
   ],
   providers: [],
   bootstrap: [AppComponent]

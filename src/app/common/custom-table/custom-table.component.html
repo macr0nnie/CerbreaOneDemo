@@ -1,0 +1,101 @@
+<div class="smart-table-container">
+  <!-- Filters -->
+  <div class="filter-container" *ngIf="enableFiltering">
+    <h3>Filters</h3>
+    <form [formGroup]="filterForm" class="filter-form">
+      <div class="filter-inputs">
+        <div class="filter-group" *ngFor="let column of columns">
+          <ng-container *ngIf="column.filterable && !column.hidden">
+            <label [for]="column.key"
+              >{{ column.header }}
+              <input
+                type="text"
+                [id]="column.key"
+                [formControlName]="column.key"
+                [placeholder]="'Filter by ' + column.header.toLowerCase()"
+                [title]="'Filter by ' + column.header"
+              />
+            </label>
+          </ng-container>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button type="button" class="clear-filters" (click)="clearFilters()">
+          Clear Filters
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="filteredData.length === 0">
+    <p>{{ emptyMessage }}</p>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container" *ngIf="filteredData.length > 0">
+    <table class="smart-table">
+      <thead>
+        <tr>
+          <th
+            *ngFor="let column of columns"
+            [ngClass]="{ sortable: column.sortable }"
+            (click)="onSortClick(column)"
+            [style.width]="column.width || 'auto'"
+            [hidden]="column.hidden"
+          >
+            <div class="th-content">
+              {{ column.header }}
+              <i *ngIf="column.sortable" [class]="getSortIcon(column)"></i>
+            </div>
+          </th>
+          <th *ngIf="actions.length > 0" class="actions-column">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of displayData">
+          <td *ngFor="let column of columns" [hidden]="column.hidden">
+            {{ formatCellValue(item, column) }}
+          </td>
+          <td *ngIf="actions.length > 0" class="actions-cell">
+            <ng-container *ngFor="let action of actions">
+              <button
+                *ngIf="shouldShowAction(action, item)"
+                [class]="'action-btn ' + (action.class || '')"
+                (click)="onActionClick(action, item)"
+              >
+                <i *ngIf="action.icon" [class]="action.icon"></i>
+                {{ action.label }}
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-container" *ngIf="showPagination && totalPages > 1">
+    <div class="pagination">
+      <button
+        class="pagination-btn"
+        [disabled]="currentPage === 1"
+        (click)="goToPage(currentPage - 1)"
+      >
+        <i class="pi pi-chevron-left"></i> hi
+      </button>
+
+      <span class="page-info">
+        Page {{ currentPage }} of {{ totalPages }}
+      </span>
+
+      <button
+        class="pagination-btn"
+        [disabled]="currentPage === totalPages"
+        (click)="goToPage(currentPage + 1)"
+      >
+        <i class="pi pi-chevron-right">total</i>
+      </button>
+    </div>
+  </div>
+</div>
