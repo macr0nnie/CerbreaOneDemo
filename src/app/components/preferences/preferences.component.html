@@ -1,2 +1,36 @@
-<p>preferences works!</p>
-<button> Logout </button>
+<h1>User Settings</h1>
+<p>Manage your account</p>
+<form>
+  <label> UserName</label>
+  <input
+    type="text"
+    name="username"
+    placeholder="Enter your username"
+    required
+  />
+  <label class> Email</label>
+  <input type="email" name="email" placeholder="Enter your email" required />
+</form>
+<button>Reset Password</button>
+<button>Save Changes</button>
+<button>Logout</button>
+<div class="avatar-section">
+  <div class="avatar-container">
+    <img
+      [src]="'assets/default-avatar.png'"
+      alt="User avatar"
+      class="avatar-image"
+    />
+    <button type="button" class="avatar-upload-btn" aria-label="Upload avatar">
+      <i class="fas fa-camera"></i>
+      <span class="sr-only">Upload avatar</span>
+    </button>
+    <label for="avatar-upload" class="sr-only">Choose avatar image</label>
+    <input
+      type="file"
+      id="avatar-upload"
+      title="Choose avatar image"
+      accept="image/*"
+    />
+  </div>
+</div>

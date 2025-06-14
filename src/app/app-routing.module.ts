@@ -5,8 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PeopleTableComponent } from './components/people-table/people-table.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { CommunicationTableComponent } from './components/communication-table/communication-table.component';
-import { PreferencesComponent } from './components/preferences/preferences.component';
-
+import { PreferencesComponent } from './components/preferences/preferences.component'
 const routes: Routes = [
   {
     path: '',
