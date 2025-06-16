@@ -1,24 +1,132 @@
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
 .kpi-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  padding: 1.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+}
+
+.kpi-title {
+  font-size: 1rem;
+  color: #7b8a99;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1abc9c;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
 }
-.map{
-  width: 100%;
 
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
+.content-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
 }
+
 .map-card {
-  border-radius: 8px;
-  border: 1px solid #080000;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.map-header {
+  padding: 2rem 2rem 1rem 2rem;
+  width: 100%;
+}
+
+.map-header h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #34495e;
+}
+
+.location-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.location-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.dot-malvern {
+  background: #1abc9c;
+}
+
+.dot-uk {
+  background: #3498db;
+}
+
+.map {
+  width: 100%;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.profile-pic {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1abc9c;
+  background: #f0f0f0;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.user-role {
+  font-size: 0.95rem;
+  color: #7b8a99;
 }
