@@ -14,6 +14,7 @@ import { PreferencesComponent } from './components/preferences/preferences.compo
 import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { CustomTableComponent } from './common/custom-table/custom-table.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CustomTableComponent } from './common/custom-table/custom-table.compone
     PreferencesComponent,
     SiteLayoutComponent,
     EmployeeDetailsComponent,
-    CustomTableComponent
+    CustomTableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
