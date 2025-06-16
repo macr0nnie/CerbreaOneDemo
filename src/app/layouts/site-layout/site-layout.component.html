@@ -3,12 +3,14 @@
   [ngClass]="{ 'sidebar-collapsed': sidebarCollapsed }"
 >
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" [ngClass]="{ collapsed: sidebarCollapsed }">
+    <!-- Sidebar Toggle Button -->
+
     <div class="logo-container">
       <img src="assets/logo.png" alt="Logo" />
     </div>
 
-    <div class="nav-section">
+    <div class="nav-section" *ngIf="!sidebarCollapsed">
       <div class="section-title">Dashboard</div>
       <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
         <i class="pi pi-home"></i>
@@ -16,7 +18,7 @@
       </a>
     </div>
 
-    <div class="nav-section">
+    <div class="nav-section" *ngIf="!sidebarCollapsed">
       <div class="section-title">Management</div>
       <a routerLink="/people" routerLinkActive="active" class="nav-item">
         <i class="pi pi-users"></i>
@@ -32,12 +34,84 @@
       </a>
     </div>
 
-    <div class="nav-section">
+    <div class="nav-section" *ngIf="!sidebarCollapsed">
       <div class="section-title">Settings</div>
       <a routerLink="/preferences" routerLinkActive="active" class="nav-item">
         <i class="pi pi-cog"></i>
         <span>Preferences</span>
       </a>
+      <button 
+        class="sidebar-toggle-btn"
+        (click)="toggleSidebar()"
+        [attr.aria-label]="
+          sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
+        "
+        [attr.aria-expanded]="!sidebarCollapsed"
+      >
+      f
+        <i
+          class="pi"
+          [ngClass]="sidebarCollapsed ? 'pi-angle-right' : 'pi-angle-left'"
+        ></i>
+      </button>
+    </div>
+
+    <!-- Collapsed nav items (icons only) -->
+    <div class="collapsed-nav" *ngIf="sidebarCollapsed">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        class="nav-item-collapsed"
+        title="Dashboard"
+      >
+        <i class="pi pi-home">Home</i>
+      </a>
+      <a
+        routerLink="/people"
+        routerLinkActive="active"
+        class="nav-item-collapsed"
+        title="People"
+      >
+        <i class="pi pi-users">People</i>
+      </a>
+      <a
+        routerLink="/clients"
+        routerLinkActive="active"
+        class="nav-item-collapsed"
+        title="Clients"
+      >
+        <i class="pi pi-briefcase">Clients</i>
+      </a>
+      <a
+        routerLink="/communication"
+        routerLinkActive="active"
+        class="nav-item-collapsed"
+        title="Communication"
+      >
+        <i class="pi pi-comments">Commu</i>
+      </a>
+      <a
+        routerLink="/preferences"
+        routerLinkActive="active"
+        class="nav-item-collapsed"
+        title="Settings"
+      >
+        <i class="pi pi-cog">Pref</i>
+      </a>
+      <button
+        class="sidebar-toggle-btn"
+        (click)="toggleSidebar()"
+        [attr.aria-label]="
+          sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
+        "
+        [attr.aria-expanded]="!sidebarCollapsed"
+      >
+        >
+        <i
+          class="pi"
+          [ngClass]="sidebarCollapsed ? 'pi-angle-right' : 'pi-angle-left'"
+        ></i>
+      </button>
     </div>
   </aside>
 
@@ -73,10 +147,13 @@
             <span class="badge">3</span>
           </div>
 
-          <div class="user-avatar">
-      
+          <div
+            class="user-avatar"
+            routerLink="/preferences"
+            routerLinkActive="active"
+          >
             <img src="assets/avatar.png" alt="User Avatar" />
-            
+
             <div class="user-info">
               <div class="user-name">John Doe</div>
               <div class="user-role">Administrator</div>
