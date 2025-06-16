@@ -1,42 +1,127 @@
-<h1>User Settings</h1>
-<p>Manage your account</p>
-<form>
-  <label> UserName</label>
-  <input
-    type="text"
-    name="username"
-    placeholder="Enter your username"
-    required
-  />
-  <label class> Email</label>
-  <input type="email" name="email" placeholder="Enter your email" required />
-</form>
-<button>Reset Password</button>
-<button>Save Changes</button>
-<button routerLink="/login"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="Settings"
-      >Logout</button>
-<div class="avatar-section">
-  <div class="avatar-container">
-    <img
-      [src]="'assets/default-avatar.png'"
-      alt="User avatar"
-      class="avatar-image"
-    />
-    <button type="button" class="avatar-upload-btn" aria-label="Upload avatar">
-      <i class="fas fa-camera"></i>
-      <span class="sr-only">Upload avatar</span>
-    </button>
-    <label for="avatar-upload" class="sr-only">Choose avatar image</label>
-    <input
-      type="file"
-      id="avatar-upload"
-      title="Choose avatar image"
-      accept="image/*"
-    />
+<div class="preferences-container">
+  <header class="preferences-header">
+    <h1>Account Settings</h1>
+    <p class="subtitle">Manage your profile and account preferences</p>
+  </header>
+
+  <div class="preferences-content">
+    <!-- Avatar Section -->
+    <section class="avatar-section">
+      <h2>Profile Picture</h2>
+      <div class="avatar-wrapper">
+        <div class="avatar-container" [class.uploading]="avatarUploading">
+          <img [src]="currentAvatar" alt="User avatar" class="avatar-image" />
+
+          <div class="avatar-loading-overlay" *ngIf="avatarUploading" aria-live="polite">
+            <div class="spinner" aria-label="Uploading avatar"></div>
+          </div>
+        </div>
+
+        <div class="avatar-controls">
+          <input type="file" id="avatar-upload" accept="image/*" (change)="onAvatarUpload($event)" class="avatar-input"
+            aria-label="Upload new profile picture" />
+          <label for="avatar-upload" class="btn btn-outline avatar-upload-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+            </svg>
+            Upload Photo
+          </label>
+          <button type="button" class="btn btn-secondary avatar-remove-btn" (click)="onRemoveAvatar()"
+            aria-label="Remove current profile picture" *ngIf="currentAvatar !== 'assets/default-avatar.png'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+            Remove
+          </button>
+        </div>
+      </div>
+
+      <div class="avatar-info">
+        <p class="avatar-instructions">
+          Upload a square image for best results. Max size: 2MB
+        </p>
+        <p class="avatar-error" *ngIf="avatarError">{{ avatarError }}</p>
+      </div>
+    </section>
+
+    <!-- Personal Information Form -->
+    <section class="form-section">
+      <h2>Personal Information</h2>
+      <form [formGroup]="preferencesForm" class="preferences-form" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control"
+            [class.invalid]="username?.invalid && username?.touched" placeholder="Enter your username" />
+          <div class="error-message" *ngIf="username?.invalid && username?.touched">
+            <span *ngIf="username?.errors?.['required']">
+              Username is required
+            </span>
+            <span *ngIf="username?.errors?.['minlength']">
+              Username must be at least 2 characters
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" formControlName="email" class="form-control"
+            [class.invalid]="email?.invalid && email?.touched" placeholder="Enter your email" />
+          <div class="error-message" *ngIf="email?.invalid && email?.touched">
+            <span *ngIf="email?.errors?.['required']">Email is required</span>
+            <span *ngIf="email?.errors?.['email']">
+              Please enter a valid email
+            </span>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Account Actions -->
+    <section class="actions-section">
+      <h2>Account Actions</h2>
+
+      <div class="action-group">
+        <div class="action-item">
+          <h3>Password</h3>
+          <p>Update your password to keep your account secure</p>
+          <button type="button" class="btn btn-outline" (click)="onResetPassword()" [disabled]="isLoading"
+            aria-describedby="password-help">
+            <span *ngIf="!isLoading">Reset Password</span>
+            <span *ngIf="isLoading" class="loading-text">
+              <span class="spinner-small" aria-hidden="true"></span>
+              Sending...
+            </span>
+          </button>
+          <div id="password-help" class="sr-only">
+            This will send a password reset email to your registered email
+            address
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Fixed Action Bar -->
+  <div class="action-bar">
+    <div class="action-bar-content">
+      <button type="button" class="btn btn-secondary" (click)="preferencesForm.reset()"
+        aria-label="Cancel changes and reset form">
+        Cancel
+      </button>
+
+      <button type="button" class="btn btn-primary" (click)="onSaveChanges()"
+        [disabled]="preferencesForm.invalid || isSaving" aria-label="Save profile changes">
+        <span *ngIf="!isSaving">Save Changes</span>
+        <span *ngIf="isSaving" class="loading-text">
+          <span class="spinner-small" aria-hidden="true"></span>
+          Saving...
+        </span>
+      </button>
+
+      <button routerLink="/login" routerLinkActive="active"  type="button" class="btn btn-danger" (click)="onLogout()" aria-label="Logout from your account">
+        Logout
+      </button>
+    </div>
   </div>
 </div>
-     
-   

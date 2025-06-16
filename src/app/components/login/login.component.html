@@ -1,71 +1,51 @@
 <div class="login-container">
-  <div class="login-card">
-    <div class="login-header">
-      <h2>Welcome Back</h2>
-      <p>Please sign in to your account</p>
+    <div class="login-card">
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Please sign in to your account</p>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" formControlName="email" class="form-control"
+                    [class.invalid]="email?.invalid && email?.touched" placeholder="Enter your email" />
+                <div class="error-message" *ngIf="email?.invalid && email?.touched">
+                    <span *ngIf="email?.errors?.['required']">Email is required</span>
+                    <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-input-container">
+                    <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+                        class="form-control" [class.invalid]="password?.invalid && password?.touched"
+                        placeholder="Enter your password" />
+                    <button type="button" class="password-toggle" (click)="togglePasswordVisibility()"
+                        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+                        <span class="toggle-icon">{{ showPassword ? '🫣' : '👁️‍🗨️' }}</span>
+                    </button>
+                </div>
+                <div class="error-message" *ngIf="password?.invalid && password?.touched">
+                    <span *ngIf="password?.errors?.['required']">Password is required</span>
+                    <span *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button  routerLink="/dashboard" routerLinkActive="active"  type="submit" class="btn-primary" [disabled]="isLoading" [class.loading]="isLoading">
+                    <span *ngIf="!isLoading">Sign In</span>
+                    <span *ngIf="isLoading" class="loading-text">
+                        <span class="spinner"></span>
+                        Signing In...
+                    </span>
+                </button>
+            </div>
+
+            <div class="form-footer">
+                <a href="#" class="forgot-password">Forgot your password?</a>
+            </div>
+        </form>
     </div>
-
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          formControlName="email"
-          class="form-control"
-          [class.invalid]="email?.invalid && email?.touched"
-          placeholder="Enter your email"
-        />
-        <div class="error-message" *ngIf="email?.invalid && email?.touched">
-          <span *ngIf="email?.errors?.['required']">Email is required</span>
-          <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <div class="password-input-container">
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            id="password"
-            formControlName="password"
-            class="form-control"
-            [class.invalid]="password?.invalid && password?.touched"
-            placeholder="Enter your password"
-          />
-          <button
-            type="button"
-            class="password-toggle"
-            (click)="togglePasswordVisibility()"
-            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
-          >
-            <span class="toggle-icon">{{ showPassword ? '🫣' : '👁️‍🗨️' }}</span>
-          </button>
-        </div>
-        <div class="error-message" *ngIf="password?.invalid && password?.touched">
-          <span *ngIf="password?.errors?.['required']">Password is required</span>
-          <span *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters</span>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button
-          type="submit"
-          class="btn-primary"
-          [disabled]="isLoading"
-          [class.loading]="isLoading"
-        >
-          <span *ngIf="!isLoading">Sign In</span>
-          <span *ngIf="isLoading" class="loading-text">
-            <span class="spinner"></span>
-            Signing In...
-          </span>
-        </button>
-      </div>
-
-      <div class="form-footer">
-        <a href="#" class="forgot-password">Forgot your password?</a>
-      </div>
-    </form>
-  </div>
 </div>
