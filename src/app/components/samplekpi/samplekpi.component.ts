@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+
+export type ChartOptions = {
+
+};
 @Component({
   selector: 'app-samplekpi',
   standalone: false,
@@ -8,4 +12,6 @@ import { Component } from '@angular/core';
 })
 export class SamplekpiComponent {
 
+
+  
 }

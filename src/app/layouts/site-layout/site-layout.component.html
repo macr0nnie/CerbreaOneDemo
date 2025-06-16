@@ -1,17 +1,19 @@
-<div class="portal-container" [ngClass]="{'sidebar-collapsed': sidebarCollapsed}">
+<div
+  class="portal-container"
+  [ngClass]="{ 'sidebar-collapsed': sidebarCollapsed }"
+>
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo-container">
       <img src="assets/logo.png" alt="Logo" />
     </div>
- 
+
     <div class="nav-section">
       <div class="section-title">Dashboard</div>
       <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
         <i class="pi pi-home"></i>
         <span>Home</span>
       </a>
- 
     </div>
 
     <div class="nav-section">
@@ -44,17 +46,24 @@
     <!-- Top Navbar -->
     <nav class="navbar">
       <div class="nav-left">
-        <button class="toggle-sidebar" (click)="toggleSidebar()" type="button" title="Toggle Sidebar">
+        <button
+          class="toggle-sidebar"
+          (click)="toggleSidebar()"
+          type="button"
+          title="Toggle Sidebar"
+        >
           <i class="pi pi-bars"></i>
           <span class="sr-only">Toggle Sidebar</span>
         </button>
       </div>
-      
+
       <div class="nav-middle">
         <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
         <a routerLink="/people" routerLinkActive="active">People</a>
         <a routerLink="/clients" routerLinkActive="active">Clients</a>
-        <a routerLink="/communication" routerLinkActive="active">Communication</a>
+        <a routerLink="/communication" routerLinkActive="active"
+          >Communication</a
+        >
       </div>
 
       <div class="nav-right">
@@ -65,7 +74,9 @@
           </div>
 
           <div class="user-avatar">
-            <img src="assets/avatar.jpg" alt="User Avatar" />
+      
+            <img src="assets/avatar.png" alt="User Avatar" />
+            
             <div class="user-info">
               <div class="user-name">John Doe</div>
               <div class="user-role">Administrator</div>
@@ -74,7 +85,7 @@
         </div>
       </div>
     </nav>
-    
+
     <!-- Main Content - Router Outlet -->
     <main class="main-content">
       <router-outlet></router-outlet>

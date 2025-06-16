@@ -10,3 +10,15 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
+.map{
+  width: 100%;
+
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.map-card {
+  border-radius: 8px;
+  border: 1px solid #080000;
+  
+}
