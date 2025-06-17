@@ -1,15 +1,21 @@
 export interface User {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  role: UserRole; // e.g., 'admin', 'user', etc.
+  phone: string;
+  office_location: string;
+  jobTitle: string;
+  department: string;
+  hireDate: Date;
+  employement_type: string;
+  client: string;
   isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  role: UserRole;
 }
 
 export enum UserRole {
-    Admin = 'admin',
-    HR = 'hr',
-    Employee = 'employee' 
+  Admin = 'admin',
+  HR = 'hr',
+  Employee = 'employee',
 }

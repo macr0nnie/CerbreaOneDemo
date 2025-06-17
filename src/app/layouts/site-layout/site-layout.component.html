@@ -1,7 +1,4 @@
-<div
-  class="portal-container"
-  [ngClass]="{ 'sidebar-collapsed': sidebarCollapsed }"
->
+<div class="portal-container" [ngClass]="{ 'sidebar-collapsed': sidebarCollapsed }">
   <!-- Sidebar -->
   <aside class="sidebar" [ngClass]="{ collapsed: sidebarCollapsed }">
     <!-- Sidebar Toggle Button -->
@@ -40,79 +37,10 @@
         <i class="pi pi-cog"></i>
         <span>Preferences</span>
       </a>
-      <button 
-        class="sidebar-toggle-btn"
-        (click)="toggleSidebar()"
-        [attr.aria-label]="
-          sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
-        "
-        [attr.aria-expanded]="!sidebarCollapsed"
-      >
-      f
-        <i
-          class="pi"
-          [ngClass]="sidebarCollapsed ? 'pi-angle-right' : 'pi-angle-left'"
-        ></i>
-      </button>
+  
     </div>
 
-    <!-- Collapsed nav items (icons only) -->
-    <div class="collapsed-nav" *ngIf="sidebarCollapsed">
-      <a
-        routerLink="/dashboard"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="Dashboard"
-      >
-        <i class="pi pi-home">Home</i>
-      </a>
-      <a
-        routerLink="/people"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="People"
-      >
-        <i class="pi pi-users">People</i>
-      </a>
-      <a
-        routerLink="/clients"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="Clients"
-      >
-        <i class="pi pi-briefcase">Clients</i>
-      </a>
-      <a
-        routerLink="/communication"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="Communication"
-      >
-        <i class="pi pi-comments">Commu</i>
-      </a>
-      <a
-        routerLink="/preferences"
-        routerLinkActive="active"
-        class="nav-item-collapsed"
-        title="Settings"
-      >
-        <i class="pi pi-cog">Pref</i>
-      </a>
-      <button
-        class="sidebar-toggle-btn"
-        (click)="toggleSidebar()"
-        [attr.aria-label]="
-          sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
-        "
-        [attr.aria-expanded]="!sidebarCollapsed"
-      >
-        >
-        <i
-          class="pi"
-          [ngClass]="sidebarCollapsed ? 'pi-angle-right' : 'pi-angle-left'"
-        ></i>
-      </button>
-    </div>
+
   </aside>
 
   <!-- Main Content Area -->
@@ -120,12 +48,7 @@
     <!-- Top Navbar -->
     <nav class="navbar">
       <div class="nav-left">
-        <button
-          class="toggle-sidebar"
-          (click)="toggleSidebar()"
-          type="button"
-          title="Toggle Sidebar"
-        >
+        <button class="toggle-sidebar" (click)="toggleSidebar()" type="button" title="Toggle Sidebar">
           <i class="pi pi-bars"></i>
           <span class="sr-only">Toggle Sidebar</span>
         </button>
@@ -135,9 +58,7 @@
         <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
         <a routerLink="/people" routerLinkActive="active">People</a>
         <a routerLink="/clients" routerLinkActive="active">Clients</a>
-        <a routerLink="/communication" routerLinkActive="active"
-          >Communication</a
-        >
+        <a routerLink="/communication" routerLinkActive="active">Communication</a>
       </div>
 
       <div class="nav-right">
@@ -147,11 +68,7 @@
             <span class="badge">3</span>
           </div>
 
-          <div
-            class="user-avatar"
-            routerLink="/preferences"
-            routerLinkActive="active"
-          >
+          <div class="user-avatar" routerLink="/preferences" routerLinkActive="active">
             <img src="assets/avatar.png" alt="User Avatar" />
 
             <div class="user-info">

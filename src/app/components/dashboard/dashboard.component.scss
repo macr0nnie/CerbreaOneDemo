@@ -1,8 +1,10 @@
+@import '../../../styles';
+
 .page-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: #2c3e50;
+  color: $color-primary-dark;
 }
 
 .kpi-container {
@@ -12,7 +14,7 @@
 }
 
 .kpi-card {
-  background: #fff;
+  background: $color-white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   padding: 1.5rem 2rem;
@@ -25,14 +27,14 @@
 
 .kpi-title {
   font-size: 1rem;
-  color: #7b8a99;
-  margin-bottom: 0.5rem;
+  color: $color-gray-40;
+  margin-bottom: 0.5rem; 
 }
 
 .kpi-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #1abc9c;
+  color: $color-gray-90;
 }
 
 .content-grid {
@@ -87,14 +89,7 @@
   height: 10px;
   border-radius: 50%;
   margin-right: 0.5rem;
-}
-
-.dot-malvern {
-  background: #1abc9c;
-}
-
-.dot-uk {
-  background: #3498db;
+  background: $color-accent;
 }
 
 .map {

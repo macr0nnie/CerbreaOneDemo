@@ -1,3 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+//color palette
+$color-primary: #0048bd;
+$color-primary-dark: #041c42;
+$color-primary-light: #ffffff;
+$color-accent: #ff8e55;
+$color-success: #06d6a0;
+$color-error: #ef476f;
+$color-warning: #ffd166;
+$color-button-primary: #5e98f7;
+
+// Neutral Colors
+$color-white: #ffffff;
+$color-gray-10: #f8f9fa;
+$color-gray-20: #e9ecef;
+$color-gray-30: #dee2e6;
+$color-gray-40: #ced4da;
+$color-gray-50: #adb5bd;
+$color-gray-60: #6c757d;
+$color-gray-70: #495057;
+$color-gray-80: #343a40;
+$color-gray-90: #212529;
+$color-black: #000000;
+
+//fonts
+$font-family-base: 'Roboto', system-ui, -apple-system, sans-serif;
+$font-family-heading: 'Montserrat', $font-family-base;
+$font-size-root: 16px;
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;  // 14px
+$font-size-md: $font-size-base;  // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-xxl: 1.5rem;   // 24px
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-base: 1.5;
+$line-height-heading: 1.2;
+
+// Border Radius
+// ------------------------------
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-circle: 50%;
+
+// Box Shadow
+// ------------------------------
+$box-shadow-sm: 0 1px 3px rgba($color-black, 0.12);
+$box-shadow-md: 0 2px 12px rgba($color-black, 0.12);
+$box-shadow-lg: 0 10px 15px rgba($color-black, 0.1);
+$box-shadow-xl: 0 20px 25px rgba($color-black, 0.1);
+
+// Transition
+// ------------------------------
+$transition-duration-fast: 0.15s;
+$transition-duration-normal: 0.3s;
+$transition-duration-slow: 0.45s;
+$transition-timing: ease-in-out;
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-gray-90;
+  background-color: $color-gray-10;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.content-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+  padding: 2rem;
+  margin-bottom: 1.5rem; 
+}
