@@ -15,6 +15,7 @@ import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { CustomTableComponent } from './common/custom-table/custom-table.component';
 import { LoginComponent } from './components/login/login.component';
+import { EmployeeViewsComponent } from './components/employee-views/employee-views.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,14 @@ import { LoginComponent } from './components/login/login.component';
     SiteLayoutComponent,
     EmployeeDetailsComponent,
     CustomTableComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeViewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-      NgApexchartsModule,
+    NgApexchartsModule,
     ReactiveFormsModule  // Add ReactiveFormsModule to the imports array
   ],
   providers: [],

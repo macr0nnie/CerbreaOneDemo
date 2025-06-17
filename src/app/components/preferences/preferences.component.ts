@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './preferences.component.scss'
 })
 export class PreferencesComponent implements OnInit {
+  //fix this once the authentication is done
   preferencesForm!: FormGroup;
   isLoading = false;
   isSaving = false;
