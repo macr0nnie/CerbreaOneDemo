@@ -1,4 +1,4 @@
-// Variables for consistency
+
 $sidebar-width: 240px;
 $sidebar-collapsed-width: 70px;
 $primary-color: #2196F3;
@@ -41,31 +41,7 @@ $breakpoint-mobile: 480px;
         padding: 1.5rem 0.5rem;
     }
 
-    .sidebar-toggle-btn {
-   
-        border: none;
-        border-radius: 50%;
-        background-color: $primary-color;
-        color: white;
-        cursor: pointer;
-        z-index: 1001;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        transition: all $transition-speed ease;
 
-        &:hover {
-            background-color: darken($primary-color, 10%);
-            transform: scale(1.1);
-        }
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
-        }
-
-        i {
-            font-size: 14px;
-        }
-    }
 
     .logo-container {
         display: flex;
@@ -78,20 +54,15 @@ $breakpoint-mobile: 480px;
             height: 32px;
             margin-right: 0.5rem;
         }
-
-        .logo-text {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-        }
     }
 
     &.collapsed .logo-container {
         justify-content: center;
-        
+  
         img {
             margin-right: 0;
+            width: 32px; // Adjust logo size for collapsed state
+            height: 32px;
         }
     }
 
