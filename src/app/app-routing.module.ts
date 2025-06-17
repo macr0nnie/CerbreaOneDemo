@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'clients', component: ClientsComponent },
       { path: 'communication', component: CommunicationTableComponent },
       { path: 'preferences', component: PreferencesComponent }, // Add the login route
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
     ],
   },
 ];

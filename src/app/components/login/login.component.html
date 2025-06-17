@@ -34,7 +34,8 @@
             </div>
 
             <div class="form-actions">
-                <button  routerLink="/dashboard" routerLinkActive="active"  type="submit" class="btn-primary" [disabled]="isLoading" [class.loading]="isLoading">
+                <button routerLink="/dashboard" routerLinkActive="active" type="submit" class="btn-primary"
+                    [disabled]="isLoading" [class.loading]="isLoading">
                     <span *ngIf="!isLoading">Sign In</span>
                     <span *ngIf="isLoading" class="loading-text">
                         <span class="spinner"></span>
@@ -49,3 +50,13 @@
         </form>
     </div>
 </div>
+
+<button routerLink="/dashboard" routerLinkActive="active">
+    Skip Login
+</button>
+<button routerLink="/" routerLinkActive="active">
+    Admin View
+</button>
+<button>
+    Employee View 
+</button>
