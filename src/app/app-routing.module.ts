@@ -8,7 +8,6 @@ import { CommunicationTableComponent } from './components/communication-table/co
 import { PreferencesComponent } from './components/preferences/preferences.component';
 import { LoginComponent } from './components/login/login.component'; // Import the LoginComponent
 const routes: Routes = [
-
   { path: 'login', component: LoginComponent },
   {
     path: '',
