@@ -35,7 +35,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-      NgApexchartsModule,
+    NgApexchartsModule,
     ReactiveFormsModule  // Add ReactiveFormsModule to the imports array
   ],
   providers: [],

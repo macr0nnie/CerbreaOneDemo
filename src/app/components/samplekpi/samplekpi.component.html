@@ -1,22 +1,27 @@
-<div class="kpi-container">
-  <h2>Performance Metrics</h2>
-  <div class="chart-container">
-    <h3>Monthly Trend</h3>
-    <div id="line-chart">
+<div class="charts-container content-grid">
+  <div class="chart-card content-card">
+    <div #departmentChart id="departmentChart">
+      <apx-chart
+        [series]="departmentChartOptions.series"
+        [chart]="departmentChartOptions.chart"
+        [labels]="departmentChartOptions.labels"
+        [colors]="departmentChartOptions.colors"
+        [title]="departmentChartOptions.title"
+        [dataLabels]="departmentChartOptions.dataLabels"
+      ></apx-chart>
     </div>
   </div>
   
-  <div class="chart-row">
-    <div class="chart-card">
-      <h3>Completion Rate</h3>
-      <div id="radial-chart">
-          </div>
-    </div>
-  
-    <div class="chart-card">
-      <h3>Distribution</h3>
-      <div id="pie-chart">
-      </div>
+  <div class="chart-card content-card">
+    <div #statusChart id="statusChart">
+      <apx-chart
+        [series]="statusChartOptions.series"
+        [chart]="statusChartOptions.chart"
+        [labels]="statusChartOptions.labels"
+        [colors]="statusChartOptions.colors"
+        [title]="statusChartOptions.title"
+        [dataLabels]="statusChartOptions.dataLabels"
+      ></apx-chart>
     </div>
   </div>
 </div>
