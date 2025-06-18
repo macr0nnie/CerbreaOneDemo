@@ -13,4 +13,7 @@ describe('AuthenticationService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-});
+
+  it('should initialize with isLooggedIn set to false', () => {
+    expect(service.isLooggedIn).toBeFalse();
+  });})
