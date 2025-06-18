@@ -1,3 +1,4 @@
+
 .charts-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,9 +7,9 @@
 }
 
 .chart-card {
-  background: $color-white;
-  border-radius: $border-radius-md;
-  box-shadow: $box-shadow-sm;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
   padding: 16px;
   flex: 1;
   min-width: 300px;
