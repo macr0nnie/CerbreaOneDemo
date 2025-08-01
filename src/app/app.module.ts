@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgApexchartsModule } from "ng-apexcharts";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -37,7 +37,7 @@ import { EmployeeViewsComponent } from './components/employee-views/employee-vie
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgApexchartsModule,
+
     ReactiveFormsModule  // Add ReactiveFormsModule to the imports array
   ],
   providers: [],
